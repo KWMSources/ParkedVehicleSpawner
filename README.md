@@ -17,13 +17,16 @@ deps: [
 ```
 
 **Usage in NodeJS**
+
 2. Import the resource by `import * as ParkedVehicleSpawner from 'ParkedVehicleSpawner';`
 3. You can use now:
    * `ParkedVehicleSpawner.SetRandomParkedVehicleCount({NumbersOfVehiclesYouWantToSpawn})` to set an approximately count of vehicle spawns
    * `ParkedVehicleSpawner.SpawnParkedVehicles()` to spawn the vehicles
    
 **Usage in C-Sharp**
+
 2. Use the following code:
+
 ```public class SampleResource : AsyncResource
 {
   public override void OnStart()
