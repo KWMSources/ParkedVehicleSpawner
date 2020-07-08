@@ -99,7 +99,8 @@ export function spawn(amount = 1000) {
                 vehicle.customPrimaryColor = new alt.RGBA(
                     getRandomInt(0, 255),
                     getRandomInt(0, 255),
-                    getRandomInt(0, 255)
+                    getRandomInt(0, 255),
+                    1
                 );
             else {
                 let color =
