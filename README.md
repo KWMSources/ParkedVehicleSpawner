@@ -20,7 +20,7 @@ deps: [
 **Usage in NodeJS**
 
 2. Edit the `resource.cfg` and set the type to `js` and the main to `server/server.js`
-3. Import the package by using `import ParkedVehicleSpawner from "ParkedVehicleSpawner";`
+3. Import the package by using `import * as ParkedVehicleSpawner from "ParkedVehicleSpawner";`
 4. Spawn your desired amount of parked vehicled by using `ParkedVehicleSpawner.spawn(amount);`
 
 **Usage in C-Sharp**
