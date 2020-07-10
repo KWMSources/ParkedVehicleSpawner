@@ -33,3 +33,6 @@ serverSrc/Properties/PublishProfiles/FolderProfile.pubxml.user
 serverSrc/Properties/PublishProfiles/FolderProfile.pubxml
 serverSrc/ParkedVehicleSpawner.csproj.user
 ParkedVehicleSpawner.sln
+.vs/ParkedVehicleSpawner/DesignTimeBuild/.dtbcache.v2
+.vs/ParkedVehicleSpawner/v16/.suo
+serverSrc/obj/Debug/netcoreapp3.1/ParkedVehicleSpawner.csprojAssemblyReference.cache
