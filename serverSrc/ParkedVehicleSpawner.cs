@@ -71,12 +71,10 @@ namespace ParkedVehicleSpawner
                 IVehicle vehicle = Alt.CreateVehicle(
                     model,
                     new Position(carGeneratorItem.Position.X, carGeneratorItem.Position.Y, carGeneratorItem.Position.Z),
-                    new Rotation(0, 0,
-                        (float)Math.Acos(
-                            Math.Atan2(
-                                Convert.ToDouble(carGeneratorItem.OrientY),
-                                Convert.ToDouble(carGeneratorItem.OrientX)
-                            )
+                    new Rotation(0, 0, 0 -
+                        (float)Math.Atan2(
+                         Convert.ToDouble(carGeneratorItem.OrientX),
+                         Convert.ToDouble(carGeneratorItem.OrientY)
                         )
                     )
                 );
