@@ -42,6 +42,18 @@ namespace ParkedVehicleSpawner
             this.colorsNum = FileLoader.LoadDataFromJsonFile<List<int>>("resources/ParkedVehicleSpawner/CarColorsNum.json");
         }
 
+        private string[] NumberPlateChars = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        public string GenerateNumberPlate()
+        {
+            Random randomizer = new Random();
+
+            string numberplate = "";
+
+            for (int i = 0; i < 8; i++) numberplate += NumberPlateChars[randomizer.Next(0, NumberPlateChars.Length - 1)];
+
+            return numberplate;
+        }
+
         public void SpawnParkedVehicles()
         {
             Random randomizer = new Random();
@@ -106,6 +118,8 @@ namespace ParkedVehicleSpawner
                         vehicle.SecondaryColorRgb = color;
                     }
                 }
+
+                vehicle.NumberplateText = GenerateNumberPlate();
 
                 counter++;
             }
