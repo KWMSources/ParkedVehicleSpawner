@@ -24,7 +24,10 @@ namespace ParkedVehicleSpawner
         private List<String> colorlessCars = new List<string>();
 
         //Vehicle colors (if empty the color will be randomly generated)
-        private List<JsonRGBA> colors = new List<JsonRGBA>();
+        private List<JsonRGBA> colorsRGB = new List<JsonRGBA>();
+
+        //Vehicle colors (if empty the color will be randomly generated)
+        private List<int> colorsNum = new List<int>();
 
         //Spawn count of random cars
         private int ToSpawnCount = 3000;
@@ -35,7 +38,8 @@ namespace ParkedVehicleSpawner
             this.carGeneratorItems = FileLoader.LoadDataFromJsonFile<List<CarGeneratorItem>>("resources/ParkedVehicleSpawner/CarGenerators.json");
             this.popGroup = FileLoader.LoadDataFromJsonFile<Dictionary<String, String[]>>("resources/ParkedVehicleSpawner/PopGroup.json");
             this.colorlessCars = FileLoader.LoadDataFromJsonFile<List<String>>("resources/ParkedVehicleSpawner/ColorlessCars.json");
-            this.colors = FileLoader.LoadDataFromJsonFile<List<JsonRGBA>>("resources/ParkedVehicleSpawner/CarColorsRGBs.json");
+            this.colorsRGB = FileLoader.LoadDataFromJsonFile<List<JsonRGBA>>("resources/ParkedVehicleSpawner/CarColorsRGBs.json");
+            this.colorsNum = FileLoader.LoadDataFromJsonFile<List<int>>("resources/ParkedVehicleSpawner/CarColorsNum.json");
         }
 
         public void SpawnParkedVehicles()
@@ -83,8 +87,24 @@ namespace ParkedVehicleSpawner
 
                 //Set the vehicle color
                 if (!this.colorlessCars.Contains(model)) {
-                    if (colors.Count == 0) vehicle.PrimaryColorRgb = new Rgba((byte)randomizer.Next(0, 255), (byte)randomizer.Next(0, 255), (byte)randomizer.Next(0, 255), 1);
-                    else vehicle.PrimaryColorRgb = colors[randomizer.Next(0, colors.Count-1)].parse();
+                    if (colorsNum.Count != 0)
+                    {
+                        byte color = (byte)colorsNum[randomizer.Next(0, colorsNum.Count - 1)];
+                        vehicle.PrimaryColor = color;
+                        vehicle.SecondaryColor = color;
+                    }
+                    else if (colorsRGB.Count == 0)
+                    {
+                        Rgba color = new Rgba((byte)randomizer.Next(0, 255), (byte)randomizer.Next(0, 255), (byte)randomizer.Next(0, 255), 1);
+                        vehicle.PrimaryColorRgb = color;
+                        vehicle.SecondaryColorRgb = color;
+                    }
+                    else
+                    {
+                        Rgba color = colorsRGB[randomizer.Next(0, colorsRGB.Count - 1)].parse();
+                        vehicle.PrimaryColorRgb = color;
+                        vehicle.SecondaryColorRgb = color;
+                    }
                 }
 
                 counter++;
