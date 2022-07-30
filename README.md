@@ -1,3 +1,5 @@
+# Please mention: This project is no longer maintained. It will also not be maintained for money. No matter how much money you offer: I will not help you maintain this project. So please: Don't contact me. Thanks.
+
 # ParkedVehicleSpawner
 
 This is a AltV resource to spawn vehicles randomly on the native parking spots of GTA 5.
