@@ -1,8 +1,8 @@
 import * as alt from "alt-server";
-import vehicleGenerators from "../CarGenerators.json";
-import vehiclePopGroups from "../PopGroup.json";
-import colorlessVehicles from "../ColorlessCars.json";
-import vehicleColors from "../CarColorsRGBs.json";
+import vehicleGenerators from "../CarGenerators.json"  assert { type: "json" };
+import vehiclePopGroups from "../PopGroup.json" assert { type: "json" };
+import colorlessVehicles from "../ColorlessCars.json" assert { type: "json" };
+import vehicleColors from "../CarColorsRGBs.json" assert { type: "json" };
 
 const ALLOWED_FLAGS = [1568, 1632, 3616, 3680, 3681];
 
